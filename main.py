@@ -23,12 +23,11 @@ class Board:
             for col in range(self.width):
                 rect = pygame.Rect(self.left + (col * self.cell_size), self.top + (row * self.cell_size), self.cell_size, self.cell_size)
                 # Рисую белую границу
-                pygame.draw.rect(screen, pygame.Color("white"), rect, 1)
                 if self.board[row][col] == 'x':
                     self.draw_x((row, col))
                 elif self.board[row][col] == 'o':
                     self.draw_o((row, col))
-                
+                pygame.draw.rect(screen, pygame.Color("white"), rect, 1)
     
     def interface(self, mouse_pos):
         cell = self.get_cell(mouse_pos)
@@ -51,8 +50,8 @@ class Board:
         point2 = (self.left + self.cell_size * col + self.cell_size, self.top + self.cell_size * row + self.cell_size)
         
         point3 = (self.left + self.cell_size * col + self.cell_size - 2, self.top + self.cell_size * row - 2)
-        point4 = (self.left + self.cell_size * col - 2, self.top + self.cell_size * row + self.cell_size - )
-        #pygame.draw.line(screen, (0, 0, 255), point1, point2, 2)                                              
+        point4 = (self.left + self.cell_size * col - 2, self.top + self.cell_size * row + self.cell_size - 2)
+        pygame.draw.line(screen, (0, 0, 255), point1, point2, 2)                                              
         pygame.draw.line(screen, (0, 0, 255), point3, point4, 2)
     
     def draw_o(self, cell):
